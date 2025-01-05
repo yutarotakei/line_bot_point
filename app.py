@@ -4,6 +4,7 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import os
 from dotenv import load_dotenv
+from response_handler import generate_reply
 
 # 環境変数をロード
 load_dotenv()
@@ -35,7 +36,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_message = event.message.text
-    reply_message = f"君のメッセージは「{user_message}」じゃな！"
+    reply_message = generate_reply(user_message)  # 応答ロジックを呼び出し
 
     line_bot_api.reply_message(
         event.reply_token,
