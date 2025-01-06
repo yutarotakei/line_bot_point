@@ -4,8 +4,11 @@ def generate_reply(user_message):
     """
     ユーザーのメッセージに応じた返信を生成する。
     """
-    if "PayPay" in user_message:
-        return "PayPayについての話題じゃな！\nPayPayはお小遣い増量キャンペーンをやっておるぞ。そのほかデジタル商品券が多いことも特徴じゃ\n詳しい情報はここより見れるぞ　https://paypay.ne.jp/event/"
+    if "PayPay" or "paypay" in user_message:
+        return """PayPayについての話題じゃな！\n
+        PayPayはお小遣い増量キャンペーンをやっておるぞ。そのほかデジタル商品券が多いことも特徴じゃ\n
+        詳しい情報はここより見れるぞ　https://paypay.ne.jp/event/"""
+    
     elif "楽天" in user_message:
         return "楽天についての情報が知りたいのじゃな。"
     elif "Vポイント" in user_message:

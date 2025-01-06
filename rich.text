@@ -1,0 +1,112 @@
+curl -v -X POST https://api.line.me/v2/bot/richmenu \
+-H 'Authorization: Bearer MJdKyE1wFkQ2ngksEHHAeV0mJgXlTHxpk9QsDWVsHgOJnZirvcpYkIaLGuJdZ+G0+i+dCQSUzyfvVWuvqhOrySmpXAbn8m6VFMA7kM7numynLG+JfROvfWLRmdIc4LyZch8Wz15wIb/eLE+8Y2xt+wdB04t89/1O/w1cDnyilFU=' \
+-H 'Content-Type: application/json' \
+-d '{
+  "size": {
+    "width": 2500,
+    "height": 1686
+  },
+  "selected": true,
+  "name": "Default Menu",
+  "chatBarText": "メニュー画面を開く",
+  "areas": [
+    {
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 833,
+        "height": 843
+      },
+      "action": {
+        "type": "message",
+        "label": "PayPay",
+        "text": "PayPayの最新オトク情報おしえて！"
+      }
+    },
+    {
+      "bounds": {
+        "x": 833,
+        "y": 0,
+        "width": 833,
+        "height": 843
+      },
+      "action": {
+        "type": "message",
+        "label": "Vポイント",
+        "text": "Vポイントの最新オトク情報おしえて！"
+      }
+    },
+    {
+      "bounds": {
+        "x": 1666,
+        "y": 0,
+        "width": 833,
+        "height": 843
+      },
+      "action": {
+        "type": "message",
+        "label": "楽天ポイント",
+        "text": "楽天ポイントの最新オトク情報おしえて！"
+      }
+    },
+    {
+      "bounds": {
+        "x": 0,
+        "y": 843,
+        "width": 833,
+        "height": 843
+      },
+      "action": {
+        "type": "message",
+        "label": "dポイント",
+        "text": "dポイントの最新オトク情報おしえて！"
+      }
+    },
+    {
+      "bounds": {
+        "x": 833,
+        "y": 843,
+        "width": 833,
+        "height": 843
+      },
+      "action": {
+        "type": "message",
+        "label": "ponta",
+        "text": "pontaの最新オトク情報おしえて！"
+      }
+    },
+    {
+      "bounds": {
+        "x": 1666,
+        "y": 843,
+        "width": 833,
+        "height": 843
+      },
+      "action": {
+        "type": "message",
+        "label": "博士にたずねる",
+        "text": "ポイ活のオトク豆知識おしえて！"
+      }
+    }
+  ]
+}'
+
+
+
+curl -v -X POST https://api.line.me/v2/bot/richmenu/richmenu-c9a8a6fd18d84c6577305e7f5d18e8cb/content \
+-H "Authorization: Bearer MJdKyE1wFkQ2ngksEHHAeV0mJgXlTHxpk9QsDWVsHgOJnZirvcpYkIaLGuJdZ+G0+i+dCQSUzyfvVWuvqhOrySmpXAbn8m6VFMA7kM7numynLG+JfROvfWLRmdIc4LyZch8Wz15wIb/eLE+8Y2xt+wdB04t89/1O/w1cDnyilFU=" \
+-H "Content-Type: image/png" \
+--data-binary @richmenu_1.png
+
+
+curl -v -X POST https://api-data.line.me/v2/bot/richmenu/richmenu-c9a8a6fd18d84c6577305e7f5d18e8cb/content \
+-H "Authorization: Bearer MJdKyE1wFkQ2ngksEHHAeV0mJgXlTHxpk9QsDWVsHgOJnZirvcpYkIaLGuJdZ+G0+i+dCQSUzyfvVWuvqhOrySmpXAbn8m6VFMA7kM7numynLG+JfROvfWLRmdIc4LyZch8Wz15wIb/eLE+8Y2xt+wdB04t89/1O/w1cDnyilFU=" \
+-H "Content-Type: image/png" \
+-T richmenu_1.png
+
+
+curl -v -X POST https://api.line.me/v2/bot/user/all/richmenu/richmenu-c9a8a6fd18d84c6577305e7f5d18e8cb\
+-H "Authorization: Bearer MJdKyE1wFkQ2ngksEHHAeV0mJgXlTHxpk9QsDWVsHgOJnZirvcpYkIaLGuJdZ+G0+i+dCQSUzyfvVWuvqhOrySmpXAbn8m6VFMA7kM7numynLG+JfROvfWLRmdIc4LyZch8Wz15wIb/eLE+8Y2xt+wdB04t89/1O/w1cDnyilFU="
+
+curl -v -X POST https://api.line.me/v2/bot/user/all/richmenu/richmenu-c9a8a6fd18d84c6577305e7f5d18e8cb \
+-H "Authorization: Bearer MJdKyE1wFkQ2ngksEHHAeV0mJgXlTHxpk9QsDWVsHgOJnZirvcpYkIaLGuJdZ+G0+i+dCQSUzyfvVWuvqhOrySmpXAbn8m6VFMA7kM7numynLG+JfROvfWLRmdIc4LyZch8Wz15wIb/eLE+8Y2xt+wdB04t89/1O/w1cDnyilFU="

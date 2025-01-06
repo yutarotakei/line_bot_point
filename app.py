@@ -36,7 +36,20 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_message = event.message.text
-    reply_message = generate_reply(user_message)  # 応答ロジックを呼び出し
+
+    if "楽天" or "PayPay" or "paypay" or "Vポイント" or "dポイント" or "pontaポイント" in user_message:
+        reply_message = generate_reply(user_message)  # 応答ロジックを呼び出し
+
+    elif "市" or "区" or "町" or "村" in user_message:
+
+
+    elif "商品券" in user_message:
+
+
+    else:
+        #リストの記事を検索　あれば返す。なければ　対応しているスーパーや使い方などについて
+
+
 
     line_bot_api.reply_message(
         event.reply_token,
