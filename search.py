@@ -26,9 +26,9 @@ def search_campaign_by_name(keyword):
         formatted_results = []
         for point_name, campaigns in campaigns_by_point.items():
 
-            formatted_results.append(f"- {point_name}-")
+            #formatted_results.append(f"\n- {point_name}-")
             formatted_results.extend(
-                [f"\n\n『{campaign[1]}』\n{campaign[2]}" for campaign in campaigns]
+                [f"\n\n『{campaign[1]}({point_name})』\n{campaign[2]}" for campaign in campaigns]
             )
 
         return f"おっ、『{keyword}』に関連するキャンペーンを探しておるのか？\n\nふむふむ……おおっ、こんなのが見つかったぞい！これは見逃せんぞい！" + "\n".join(formatted_results)
