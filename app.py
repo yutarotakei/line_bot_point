@@ -6,7 +6,7 @@ import os
 from dotenv import load_dotenv
 from response_handler import generate_reply, generate_all_reply
 
-from localpoint import search_local, search_gift
+from localpoint import search_local, search_gift, local_campaign
 from search import search_campaign_by_name
 from tips_handler import reply_tips
 
@@ -54,6 +54,9 @@ def handle_message(event):
 
     elif user_message.endswith(("市", "区", "町", "村")):
         reply_message = search_local(user_message)
+
+    elif "自治体" in user_message:
+        reply_message = local_campaign()
 
 
     elif "商品券" in user_message:
