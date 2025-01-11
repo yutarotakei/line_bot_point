@@ -9,25 +9,17 @@ def generate_reply(user_message):
     def format_campaign_response(platform_name, campaign_url):
         # 条件に応じたメッセージの準備
         header = f"おっ、{platform_name}のキャンペーンが気になるんじゃな？任せておけ！"
-        overview = (
-            "すべてのキャンペーンをズラッと並べたぞい！"
-            if "すべて" in user_message
-            else "今おすすめの実施中キャンペーンを5つピックアップしてきたぞい。ほれ、これじゃ！"
-        )
-        footer = (
-            "さらに知りたい情報があれば、気軽に聞いて！"
-            if "すべて" in user_message
-            else f"もし『{platform_name}のすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。\n\nスーパー名や自治体名でも探せるから、気軽に聞いてくれい！"
-        )
+        overview = "今おすすめの実施中キャンペーンを5つピックアップしてきたぞい。ほれ、これじゃ！"
+        footer = f"もし『{platform_name}のすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。\n\nスーパー名や自治体名でも探せるから、気軽に聞いてくれい！"
+        
 
         # キャンペーン選択
-        if "すべて" in user_message:
-            selected_campaigns = [c for c in campaigns_list if c[0] == platform_name]
-        else:
-            selected_campaigns = random.sample(
-                [c for c in campaigns_list if c[0] == platform_name],
-                min(5, len([c for c in campaigns_list if c[0] == platform_name])),
-            )
+        #"if "すべて" in user_message:
+            #selected_campaigns = [c for c in campaigns_list if c[0] == platform_name]
+        selected_campaigns = random.sample(
+            [c for c in campaigns_list if c[0] == platform_name],
+            min(5, len([c for c in campaigns_list if c[0] == platform_name])),
+        )
 
         # キャンペーンのフォーマット
         campaign_text = "\n\n".join([f" {c[1]}\n{c[2]}" for c in selected_campaigns])
