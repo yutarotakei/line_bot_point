@@ -25,12 +25,15 @@ def search_campaign_by_name(keyword):
         # メッセージを整形
         formatted_results = []
         for point_name, campaigns in campaigns_by_point.items():
-            formatted_results.append(f"- {point_name} がやっとるキャンペーン！")
+
+            formatted_results.append("\n")  # 改行を1つ追加
+            formatted_results.append("\n")  # 改行を1つ追加
+            formatted_results.append(f"- {point_name}-")
             formatted_results.extend(
-                [f"  ・キャンペーン名: {campaign[1]}\n    リンク: {campaign[2]}" for campaign in campaigns]
+                [f"『{campaign[1]}』\n{campaign[2]}" for campaign in campaigns]
             )
 
         return f"おっ、『{keyword}』に関連するキャンペーンを探しておるのか？ふむふむ……おおっ、こんなのが見つかったぞい！これは見逃せんぞい！\n\n" + "\n".join(formatted_results)
     else:
-        return f"""……ん？残念ながらその名前ではキャンペーン情報は見つからんのう。ワシはポイントサイトや色んな会社の公式情報を参考にしておる。融通が利かなくて申し訳ないのじゃが正式名称じゃないとワシは認識できないのじゃ。ひらカナを変えたり、他のやり方で試せば出せるかもしれん。\n
-        ちなみに、自治体商品券を探すなら、末尾に『市・区・町・村』をつけてくれると助かるぞい。ワシも頑張って探してみるから、また声をかけてくれのう！"""
+        return f"""……ん？残念ながらその名前ではキャンペーン情報は見つからんのう。ワシはポイントサイトや色んな会社の公式情報を参考にしておる。\n融通が利かなくて申し訳ないのじゃが正式名称じゃないとワシは認識できないのじゃ。ひらカナを変えたり、他のやり方で試せば出せるかもしれん。\n
+ちなみに、自治体商品券を探すなら、末尾に『市・区・町・村』をつけてくれると助かるぞい。ワシも頑張って探してみるから、また声をかけてくれのう！"""
