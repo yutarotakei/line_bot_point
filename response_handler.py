@@ -78,7 +78,7 @@ def generate_all_reply(user_message):
     if "PayPay" in user_message or "paypay" in user_message:
         return format_all_campaign_response("PayPay", "https://paypay.ne.jp/event/")
     elif "楽天ポイント" in user_message:
-        return format_all_campaign_response("楽天ポイント", "https://pointcard.rakuten.co.jp/campaign/")
+        return "aaaa"
     elif "Vポイント" in user_message:
         return format_all_campaign_response("Vポイント", "https://cpn.tsite.jp/list/all")
     elif "dポイント" in user_message:
