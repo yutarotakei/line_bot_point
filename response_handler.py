@@ -19,9 +19,9 @@ def generate_reply(user_message):
 
 
         # 応答メッセージ
-        return f"""おっ、PayPayのキャンペーンが気になるんじゃな？任せておけ！\n
+        return f"""おっ、PayPayのキャンペーンが気になるんじゃな？任せておけ！
 {"すべてのキャンペーンをズラッと並べたぞい！" if "すべて" in user_message else "今おすすめの実施中キャンペーンを5つピックアップしてきたぞい。ほれ、これじゃ！"}\n
-{campaign_text}\n
+{campaign_text}
 {'さらに知りたい情報があれば、気軽に聞いてくれい！' if "すべて" in user_message else 'もし『PayPayのすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。\n\nスーパー名や自治体名でも探せるから、気軽に聞いてくれい！'}
         """
     
