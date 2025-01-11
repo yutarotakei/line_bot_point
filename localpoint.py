@@ -30,12 +30,12 @@ def search_gift():
         formatted_results = "\n".join(
             [f"\n\n・{campaign[0]}: {campaign[1]}\n{campaign[2]}" for campaign in results]
         )
-        return f"お、自治体商品券についてじゃな。調べてみたところ、今は下記のものが実施中じゃ{formatted_results}"
+        return f"お、自治体商品券についてじゃな。\n\n調べてみたところ、今は下記のものが実施中じゃ{formatted_results}"
     else:
         return "お、自治体商品券についてじゃな。しかし、現在該当するキャンペーンは見つからなかったぞ。"
 
 
-def local_campaign(user_message):
+def local_campaign():
     excluded_keywords = ['楽天市場', '眼鏡市場', '都市電気', '都市ガス']
     related_campaigns = [
         [campaign[0], campaign[1], campaign[2]]
@@ -50,4 +50,4 @@ def local_campaign(user_message):
                 for campaign in related_campaigns
             ]
         )
-    return f"おっ、自治体でやっておるキャンペーンについて知りたいんじゃな？ちょっと待っとれ\n\n……ふむふむ、今は下記のものが実施中じゃ{related_campaigns}"
+    return f"おっ、自治体でやっておるキャンペーンについて知りたいんじゃな？ちょっと待っとれ\n\n……ふむふむ、今は下記のものが実施中じゃ{formatted_related}"

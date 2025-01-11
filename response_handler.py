@@ -13,8 +13,8 @@ def generate_reply(user_message):
         #footer = f"\n\nもし『{platform_name}のすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。\n\nスーパー名や自治体名でも探せるから、気軽に聞いてくれい！\n\n"
         
         # footer に条件を追加
-        if platform_name in ["楽天ポイント", "dポイント"]:
-            footer = f"\n\nもし『{platform_name}のすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。\n\nスーパー名や自治体名でも探せるから、気軽に聞いてくれい！\n\n"
+        if platform_name in ["PayPay", "Vポイント","Ponta"]:
+            footer = f"\n\nもし『{platform_name}のすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。\n\nスーパー名や自治体名でも探せるから、気軽に聞いてくれい！\n\n\n"
         else:
             footer = "\n\nさらに知りたい情報があれば、気軽に聞いてくれい！\n\n"
 
@@ -27,8 +27,8 @@ def generate_reply(user_message):
         )
 
         # キャンペーンのフォーマット
-        campaign_text = "\n\n".join([f" ・{c[1]}\n{c[2]}" for c in selected_campaigns])
-        campaign_text += f"\n\n\n\n {platform_name}の全てのキャンペーンはこちら:\n {campaign_url}\n"
+        campaign_text = "\n\n".join([f" ◇{c[1]}\n{c[2]}" for c in selected_campaigns])
+        campaign_text += f"\n\n\n\n ⚫︎{platform_name}の全てのキャンペーンはこちら:\n {campaign_url}\n"
 
         # 応答メッセージの組み立て
         return dedent(f"""
