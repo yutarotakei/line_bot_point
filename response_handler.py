@@ -9,8 +9,8 @@ def generate_reply(user_message):
     def format_campaign_response(platform_name, campaign_url):
         # 条件に応じたメッセージの準備
         header = f"おっ、{platform_name}のキャンペーンが気になるんじゃな？任せておけ！"
-        overview = "今おすすめの実施中キャンペーンを5つピックアップしてきたぞい。ほれ、これじゃ！"
-        footer = f"もし『{platform_name}のすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。\n\nスーパー名や自治体名でも探せるから、気軽に聞いてくれい！"
+        overview = "今おすすめの実施中キャンペーンを5つピックアップしてきたぞい。ほれ、これじゃ！\n"
+        footer = f"もし『{platform_name}のすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。\n\nスーパー名や自治体名でも探せるから、気軽に聞いてくれい\n\n！"
         
 
         # キャンペーン選択
@@ -22,7 +22,7 @@ def generate_reply(user_message):
         )
 
         # キャンペーンのフォーマット
-        campaign_text = "\n\n".join([f" {c[1]}\n{c[2]}" for c in selected_campaigns])
+        campaign_text = "\n\n".join([f" ・{c[1]}\n{c[2]}" for c in selected_campaigns])
         campaign_text += f"\n\n\n {platform_name}の全てのキャンペーンはこちら:\n {campaign_url}\n"
 
         # 応答メッセージの組み立て
@@ -55,7 +55,7 @@ def generate_all_reply(user_message):
 
     def format_all_campaign_response(platform_name, campaign_url):
 
-        selected_campaigns = [c for c in campaigns_list if c[0] == platform_name]
+        selected_campaigns = [c for c in campaigns_list if platform_name in c[0]]
 
         header = f"おっ、{platform_name}のキャンペーンがすべて気になるんじゃな？任せておけ！"
         overview = "量は多いが、ほれこれじゃ！"
@@ -78,7 +78,7 @@ def generate_all_reply(user_message):
     if "PayPay" in user_message or "paypay" in user_message:
         return format_all_campaign_response("PayPay", "https://paypay.ne.jp/event/")
     elif "楽天ポイント" in user_message:
-        return "aaaa"
+        return format_all_campaign_response("楽天ポイント", "https://paypay.ne.jp/event/")
     elif "Vポイント" in user_message:
         return format_all_campaign_response("Vポイント", "https://cpn.tsite.jp/list/all")
     elif "dポイント" in user_message:
