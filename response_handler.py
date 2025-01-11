@@ -15,7 +15,7 @@ def generate_reply(user_message):
 
         # キャンペーンのフォーマット
         campaign_text = "\n\n".join([f"◇ {c[1]}』\n{c[2]}" for c in selected_campaigns])
-        campaign_text += "\n\n⚫︎ PayPayの全てのキャンペーンはこちら:\n https://paypay.ne.jp/event/"
+        campaign_text += "\n\n\n⚫︎ PayPayの全てのキャンペーンはこちら:\n https://paypay.ne.jp/event/"
 
 
         # 応答メッセージ
