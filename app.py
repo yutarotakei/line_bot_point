@@ -4,7 +4,7 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import os
 from dotenv import load_dotenv
-from response_handler import generate_reply
+from response_handler import generate_reply, generate_all_reply
 
 from localpoint import search_local, search_gift
 from search import search_campaign_by_name
@@ -48,8 +48,8 @@ def handle_message(event):
     elif "豆知識" in user_message:
         reply_message = reply_tips()
 
-    elif "楽天ポイントのすべて" in user_message:
-        reply_message ="test"
+    elif "すべて" in user_message:
+        reply_message = generate_all_reply(user_message)
 
 
     elif user_message.endswith(("市", "区", "町", "村")):
