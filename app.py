@@ -8,6 +8,7 @@ from response_handler import generate_reply
 
 from localpoint import search_local, search_gift
 from search import search_campaign_by_name
+from tips_handler import reply_tips
 
 # 環境変数をロード
 load_dotenv()
@@ -43,6 +44,9 @@ def handle_message(event):
 
     if len(user_message) < 2:
         reply_message = """お、何か聞きたいことがあるのか。\n\nそれならリッチメニューから「ポイントで探す」こともできるし、気になるスーパーやサービスの名前（例：マルエツ、ファミマ、モスバーガー）をポチッと打ち込んでくれてもOKじゃ！\n\nさらに住んでいる町の名前を打ってくれれば、自治体とタイアップしたキャンペーンやポイント還元中の商品券も探してくるぞ。「商品券」とただ打ち込んでくれるだけでもよいのじゃ。さぁ今日もお得にポイ活を楽しむのじゃよ"""
+
+    elif "ポイ活のおトク" in user_message:
+        reply_message = reply_tips()
 
 
     elif user_message.endswith(("市", "区", "町", "村")):

@@ -20,7 +20,7 @@ def search_local(user_message):
         return f"おっ、{user_message}ではこんなキャンペーンがあるようじゃぞ！これは活用せん手はないのう。詳細や条件はリンクからしっかり確認してくれい！：\n\n{formatted_results}"
     else:
         # 地域に関連するキャンペーンを検索（市、区、町、村を含む）
-        excluded_keywords = ['楽天市場', '眼鏡市場', '都市電気']
+        excluded_keywords = ['楽天市場', '眼鏡市場', '都市電気', '都市ガス']
         related_campaigns = [
             [campaign[0], campaign[1], campaign[2]]
             for campaign in campaigns_list
