@@ -13,7 +13,7 @@ def search_local(user_message):
     if result:
         formatted_results = "\n".join(
             [
-                f"・{campaign[0]}: {campaign[1]}\n（リンク: {campaign[2]}）"
+                f"\n・{campaign[0]}: {campaign[1]}\n{campaign[2]}"
                 for campaign in result
             ]
         )
@@ -32,7 +32,7 @@ def search_local(user_message):
                     for campaign in related_campaigns
                 ]
             )
-            return f"おっ{user_message}について知りたいんじゃな？ちょっと待っとれ……ふむふむ、調べてみたが、今のところ自治体と提携したキャンペーンや商品券は見当たらんようじゃ。残念じゃのう。\n\n\n\nちなみに今実施中の自治体とコラボしたキャンペーンは下記じゃぞ！\n\n{formatted_related}"
+            return f"おっ{user_message}について知りたいんじゃな？ちょっと待っとれ……ふむふむ、調べてみたが、今のところ自治体と提携したキャンペーンや商品券は見当たらんようじゃ。残念じゃのう。\n\nちなみに今実施中の自治体とコラボしたキャンペーンは下記じゃぞ！\n{formatted_related}"
         else:
             return f"おっ{user_message}について知りたいんじゃな？ちょっと待っとれ……ふむふむ、調べてみたが、今のところ自治体と提携したキャンペーンや商品券は見当たらんようじゃ。残念じゃのう。\nとはいえ、最近は大きな自治体を中心にこういったキャンペーンが増えてきとるから、定期的にチェックするのが吉じゃぞ！"
 
@@ -44,6 +44,6 @@ def search_gift():
         formatted_results = "\n".join(
             [f"\n\n{campaign[0]}: {campaign[1]}\n{campaign[2]}" for campaign in results]
         )
-        return f"お、自治体商品券についてじゃな。調べてみたところ、今は下記のものが実施中じゃ：\n\n{formatted_results}"
+        return f"お、自治体商品券についてじゃな。調べてみたところ、今は下記のものが実施中じゃ：{formatted_results}"
     else:
         return "お、自治体商品券についてじゃな。しかし、現在該当するキャンペーンは見つからなかったぞ。"

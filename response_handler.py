@@ -14,7 +14,7 @@ def generate_reply(user_message):
             selected_campaigns = random.sample([c for c in campaigns_list if c[0] == 'PayPay'], min(5, len(campaigns_list)))
 
         # キャンペーンのフォーマット
-        campaign_text = "\n\n".join([f"『 {c[1]}』\n{c[2]}" for c in selected_campaigns])
+        campaign_text = "\n\n".join([f"・『 {c[1]}』\n{c[2]}" for c in selected_campaigns])
         campaign_text += "\n\n- PayPayの全てのキャンペーンはこちら:\n https://paypay.ne.jp/event/"
 
 
