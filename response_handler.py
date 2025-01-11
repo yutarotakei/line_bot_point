@@ -8,7 +8,7 @@ def generate_reply(user_message):
     """
     def format_campaign_response(platform_name, campaign_url):
         # 条件に応じたメッセージの準備
-        header = f"おっ、{platform_name}のキャンペーンが気になるんじゃな？任せておけ！"
+        header = f"おっ、{platform_name}のキャンペーンが気じゃな？任せておけ！"
         overview = (
             "すべてのキャンペーンをズラッと並べたぞい！"
             if "すべて" in user_message
