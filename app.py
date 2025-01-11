@@ -6,6 +6,9 @@ import os
 from dotenv import load_dotenv
 from response_handler import generate_reply
 
+from localpoint import search_local, search_gift
+from search import search_campaign_by_name
+
 # 環境変数をロード
 load_dotenv()
 
@@ -36,20 +39,26 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_message = event.message.text
+    reply_message = ""  # 初期化
 
-    if "楽天" or "PayPay" or "paypay" or "Vポイント" or "dポイント" or "pontaポイント" in user_message:
-        reply_message = generate_reply(user_message)  # 応答ロジックを呼び出し
+    if len(user_message) < 2:
+        reply_message = """お、何か聞きたいことがあるのか。それならリッチメニューから「ポイントで探す」こともできるし、気になるスーパーやサービスの名前（例：マルエツ、ファミマ、モスバーガー）をポチッと打ち込んでくれてもOKじゃ！
+        さらに住んでいる町の名前を打ってくれれば、自治体とタイアップしたキャンペーンやポイント還元中の商品券も探してくるぞ。「商品券」とただ打ち込んでくれるだけでもよいのじゃ。さぁ今日もお得にポイ活を楽しむのじゃよ"""
 
-    elif "市" or "区" or "町" or "村" in user_message:
+
+    elif user_message.endswith(("市", "区", "町", "村")):
+        reply_message = search_local(user_message)
 
 
     elif "商品券" in user_message:
+        reply_message = search_gift()
 
-
+    # キーワードが含まれる場合（楽天、PayPayなど）
+    elif any(keyword in user_message for keyword in ["楽天", "PayPay", "paypay", "Vポイント", "dポイント", "pontaポイント"]):
+        reply_message = generate_reply(user_message)
+    # それ以外の場合
     else:
-        #リストの記事を検索　あれば返す。なければ　対応しているスーパーや使い方などについて
-
-
+        reply_message = search_campaign_by_name(user_message)
 
     line_bot_api.reply_message(
         event.reply_token,
