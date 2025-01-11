@@ -7,14 +7,26 @@ def generate_reply(user_message):
     ユーザーのメッセージに応じた返信を生成する。
     """
     def format_campaign_response(platform_name, campaign_url):
-        # "すべて" が含まれる場合、すべてのキャンペーンを表示
+        # 条件に応じたメッセージの準備
+        header = f"おっ、{platform_name}のキャンペーンが気になるんじゃな？任せておけ！"
+        overview = (
+            "すべてのキャンペーンをズラッと並べたぞい！"
+            if "すべて" in user_message
+            else "今おすすめの実施中キャンペーンを5つピックアップしてきたぞい。ほれ、これじゃ！"
+        )
+        footer = (
+            "さらに知りたい情報があれば、気軽に聞いてくれい！"
+            if "すべて" in user_message
+            else f"もし『{platform_name}のすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。\n\nスーパー名や自治体名でも探せるから、気軽に聞いてくれい！"
+        )
+
+        # キャンペーン選択
         if "すべて" in user_message:
             selected_campaigns = [c for c in campaigns_list if c[0] == platform_name]
         else:
-            # ランダムに5件のキャンペーンを選択
             selected_campaigns = random.sample(
                 [c for c in campaigns_list if c[0] == platform_name],
-                min(5, len([c for c in campaigns_list if c[0] == platform_name]))
+                min(5, len([c for c in campaigns_list if c[0] == platform_name])),
             )
 
         # キャンペーンのフォーマット
@@ -23,24 +35,21 @@ def generate_reply(user_message):
 
         # 応答メッセージの組み立て
         return dedent(f"""
-            おっ、{platform_name}のキャンペーンが気になるんじゃな？任せておけ！
-            {"すべてのキャンペーンをズラッと並べたぞい！" if "すべて" in user_message else "今おすすめの実施中キャンペーンを5つピックアップしてきたぞい。ほれ、これじゃ！"}
+            {header}
+            {overview}
             {campaign_text}
-            {"さらに知りたい情報があれば、気軽に聞いてくれい！" if "すべて" in user_message else f"もし『{platform_name}のすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。\n\nスーパー名や自治体名でも探せるから、気軽に聞いてくれい！"}
+            {footer}
         """).strip()
 
+    # 各プラットフォームに応じた応答を返す
     if "PayPay" in user_message or "paypay" in user_message:
         return format_campaign_response("PayPay", "https://paypay.ne.jp/event/")
-
     elif "楽天ポイント" in user_message:
         return format_campaign_response("楽天ポイント", "https://pointcard.rakuten.co.jp/campaign/")
-
     elif "Vポイント" in user_message:
         return format_campaign_response("Vポイント", "https://cpn.tsite.jp/list/all")
-
     elif "dポイント" in user_message:
         return format_campaign_response("dポイント", "https://dpoint.docomo.ne.jp/campaign/index.html")
-
     elif "Ponta" in user_message or "ponta" in user_message:
         return format_campaign_response("Ponta", "https://point.recruit.co.jp/point/?tab=campaign")
 
