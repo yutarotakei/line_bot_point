@@ -14,8 +14,8 @@ def generate_reply(user_message):
             selected_campaigns = random.sample([c for c in campaigns_list if c[0] == 'PayPay'], min(5, len(campaigns_list)))
 
         # キャンペーンのフォーマット
-        campaign_text = "\n\n".join([f"◇ {c[1]}\n{c[2]}" for c in selected_campaigns])
-        campaign_text += "\n\n\n⚫︎ PayPayの全てのキャンペーンはこちら:\n https://paypay.ne.jp/event/\n"
+        campaign_text = "\n\n".join([f" {c[1]}\n{c[2]}" for c in selected_campaigns])
+        campaign_text += "\n\n\n PayPayの全てのキャンペーンはこちら:\n https://paypay.ne.jp/event/\n"
 
 
         # 応答メッセージ
@@ -34,8 +34,8 @@ def generate_reply(user_message):
             selected_campaigns = random.sample([c for c in campaigns_list if c[0] == '楽天ポイント'], min(5, len(campaigns_list)))
 
         # キャンペーンのフォーマット
-        campaign_text = "\n\n".join([f"◇ {c[1]}\n{c[2]}" for c in selected_campaigns])
-        campaign_text += "\n\n\n⚫︎ 楽天ポイントの全てのキャンペーンはこちら:\n https://pointcard.rakuten.co.jp/campaign/"
+        campaign_text = "\n\n".join([f" {c[1]}\n{c[2]}" for c in selected_campaigns])
+        campaign_text += "\n\n\n 楽天ポイントの全てのキャンペーンはこちら:\n https://pointcard.rakuten.co.jp/campaign/"
 
         # 応答メッセージ
         return f"""おっ、楽天ポイントのキャンペーンが気になるんじゃな？任せておけ！\n
@@ -54,8 +54,8 @@ def generate_reply(user_message):
             selected_campaigns = random.sample([c for c in campaigns_list if c[0] == 'Vポイント'], min(5, len(campaigns_list)))
 
         # キャンペーンのフォーマット
-        campaign_text = "\n\n".join([f"◇ {c[1]}\n{c[2]}" for c in selected_campaigns])
-        campaign_text += "\n\n\n⚫︎ Vポイントの全てのキャンペーンはこちら:\n https://cpn.tsite.jp/list/all"
+        campaign_text = "\n\n".join([f" {c[1]}\n{c[2]}" for c in selected_campaigns])
+        campaign_text += "\n\n\n Vポイントの全てのキャンペーンはこちら:\n https://cpn.tsite.jp/list/all"
 
         # 応答メッセージ
         return f"""おっ、Vポイントのキャンペーンが気になるんじゃな？任せておけ！\n
@@ -74,8 +74,8 @@ def generate_reply(user_message):
             selected_campaigns = random.sample([c for c in campaigns_list if c[0] == 'dポイント'], min(5, len(campaigns_list)))
 
         # キャンペーンのフォーマット
-        campaign_text = "\n\n".join([f"◇ {c[1]}\n{c[2]}" for c in selected_campaigns])
-        campaign_text += "\n\n\n⚫︎ dポイントの全てのキャンペーンはこちら:\n https://dpoint.docomo.ne.jp/campaign/index.html"
+        campaign_text = "\n\n".join([f" {c[1]}\n{c[2]}" for c in selected_campaigns])
+        campaign_text += "\n\n\n dポイントの全てのキャンペーンはこちら:\n https://dpoint.docomo.ne.jp/campaign/index.html"
         # 応答メッセージ
         return f"""おっ、dポイントのキャンペーンが気になるんじゃな？任せておけ！\n
 {"すべてのキャンペーンをズラッと並べたぞい！" if "すべて" in user_message else "今おすすめの実施中キャンペーンを5つピックアップしてきたぞい。ほれ、これじゃ！"}\n
@@ -93,8 +93,8 @@ def generate_reply(user_message):
             selected_campaigns = random.sample([c for c in campaigns_list if c[0] == 'Ponta'], min(5, len(campaigns_list)))
 
         # キャンペーンのフォーマット
-        campaign_text = "\n\n".join([f"◇ {c[1]}\n{c[2]}" for c in selected_campaigns])
-        campaign_text += "\n\n\n⚫︎ dポイントの全てのキャンペーンはこちら:\n https://point.recruit.co.jp/point/?tab=campaign"
+        campaign_text = "\n\n".join([f" {c[1]}\n{c[2]}" for c in selected_campaigns])
+        campaign_text += "\n\n\n dポイントの全てのキャンペーンはこちら:\n https://point.recruit.co.jp/point/?tab=campaign"
 
         # 応答メッセージ
         return f"""おっ、Pontaのキャンペーンが気になるんじゃな？任せておけ！\n
