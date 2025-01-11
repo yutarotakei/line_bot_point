@@ -14,7 +14,7 @@ def generate_reply(user_message):
             selected_campaigns = random.sample([c for c in campaigns_list if c[0] == 'PayPay'], min(5, len(campaigns_list)))
 
         # キャンペーンのフォーマット
-        campaign_text = "\n\n".join([f"◯◎○◆◇ {c[1]}』\n{c[2]}" for c in selected_campaigns])
+        campaign_text = "\n\n".join([f"◆ {c[1]}』\n{c[2]}" for c in selected_campaigns])
         campaign_text += "\n\n⚫︎ PayPayの全てのキャンペーンはこちら:\n https://paypay.ne.jp/event/"
 
 
@@ -22,7 +22,7 @@ def generate_reply(user_message):
         return f"""おっ、PayPayのキャンペーンが気になるんじゃな？任せておけ！\n
 {"すべてのキャンペーンをズラッと並べたぞい！" if "すべて" in user_message else "今おすすめの実施中キャンペーンを5つピックアップしてきたぞい。ほれ、これじゃ！"}\n
 {campaign_text}\n
-{'さらに知りたい情報があれば、気軽に聞いてくれい！' if "すべて" in user_message else 'もし『PayPayのすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。スーパー名や自治体名でも探せるから、気軽に聞いてくれい！'}
+{'さらに知りたい情報があれば、気軽に聞いてくれい！' if "すべて" in user_message else '\nもし『PayPayのすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。スーパー名や自治体名でも探せるから、気軽に聞いてくれい！'}
         """
     
     elif "楽天ポイント" in user_message:
