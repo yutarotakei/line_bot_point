@@ -36,9 +36,9 @@ def search_local(user_message):
         else:
             return f"おっ{user_message}について知りたいんじゃな？ちょっと待っとれ……ふむふむ、調べてみたが、今のところ自治体と提携したキャンペーンや商品券は見当たらんようじゃ。残念じゃのう。\nとはいえ、最近は大きな自治体を中心にこういったキャンペーンが増えてきとるから、定期的にチェックするのが吉じゃぞ！"
 
-def search_gift(campaigns_list, keyword="商品券"):
+def search_gift():
     # 商品券に関するキャンペーン検索
-    results = [campaign for campaign in campaigns_list if keyword in campaign[1]]
+    results = [campaign for campaign in campaigns_list if "商品券" in campaign[1]]
     
     if results:
         formatted_results = "\n".join(
