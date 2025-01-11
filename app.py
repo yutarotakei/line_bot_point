@@ -48,7 +48,7 @@ def handle_message(event):
     elif "豆知識" in user_message:
         reply_message = reply_tips()
 
-    elif "楽天ポイントのすべて":
+    elif "楽天ポイントのすべて" in user_message:
         reply_message ="test"
 
 
