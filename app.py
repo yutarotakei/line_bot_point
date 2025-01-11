@@ -48,6 +48,9 @@ def handle_message(event):
     elif "豆知識" in user_message:
         reply_message = reply_tips()
 
+    elif "楽天ポイントのすべて":
+        reply_message ="test"
+
 
     elif user_message.endswith(("市", "区", "町", "村")):
         reply_message = search_local(user_message)
