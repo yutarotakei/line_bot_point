@@ -30,7 +30,7 @@ def search_local(user_message):
         if related_campaigns:
             formatted_related = "\n".join(
                 [
-                    f"\n\n{campaign[0]}: {campaign[1]}\n{campaign[2]}"
+                    f"\n\n・{campaign[0]}: {campaign[1]}\n{campaign[2]}"
                     for campaign in related_campaigns
                 ]
             )
@@ -44,7 +44,7 @@ def search_gift():
     
     if results:
         formatted_results = "\n".join(
-            [f"\n\n{campaign[0]}: {campaign[1]}\n{campaign[2]}" for campaign in results]
+            [f"\n\n・{campaign[0]}: {campaign[1]}\n{campaign[2]}" for campaign in results]
         )
         return f"お、自治体商品券についてじゃな。調べてみたところ、今は下記のものが実施中じゃ{formatted_results}"
     else:
