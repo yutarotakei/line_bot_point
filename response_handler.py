@@ -62,8 +62,8 @@ def generate_all_reply(user_message):
 
         selected_campaigns = [c for c in campaigns_list if platform_name in c[0]]
 
-        header = f"おっ、{platform_name}のキャンペーンがすべて気になるんじゃな？任せておけ！"
-        overview = "量は多いが、ほれこれじゃ！"
+        header = f"おっ、{platform_name}のキャンペーンがすべて気になるんじゃな？任せておけ！\n"
+        overview = "量は多いが、ほれこれじゃ！\n"
         #footer = f"もし『{platform_name}のすべて』と打ち込んでくれれば、ワシが全部のキャンペーンをここにズラッと並べてやるからのう。\n\nスーパー名や自治体名でも探せるから、気軽に聞いてくれい！"
         
         # キャンペーンのフォーマット
